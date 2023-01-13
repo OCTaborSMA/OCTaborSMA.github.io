@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="refresh" content="7; url='https://taborsintmariaaalter.op-weg.be'" />
-  </head>
-  <body>
-    <p><img src=https://taborsintmariaaalter.op-weg.be/media/110141/logo-tabor-maria-aalter.png>
-    <p>Onze school heeft een nieuwe website ! </p>
-    <p>Deze kan je bereiken via <a href="https://taborsintmariaaalter.op-weg.be">https://taborsintmariaaalter.op-weg.be/</a></p>
-    <p>U wordt automatisch doorgestuurd naar de nieuwe website</p>
-  </body>
+  
+<head>
+    <title>How To Get URL Parameters using JavaScript?</title>
+</head>
+  
+<body>
+    <h1 style="color:green;">
+        GeeksforGeeks
+    </h1> 
+    <b>
+        How To Get URL Parameters
+        With JavaScript?
+    </b>
+    <p> The url used is: 
+https://www.example.com/login.php? a=GeeksforGeeks&b=500&c=Hello Geeks 
+    </p>
+  
+    <p> Click on the button to get the url parameters in the console. </p>
+  
+    <button onclick="getParameters()"> Get URL parameters </button>
+    <script>
+    function getParameters() {
+        let urlString = 
+"https://www.example.com/login.php?a=GeeksforGeeks&b=500&c=Hello Geeks";
+        let paramString = urlString.split('?')[1];
+        let queryString = new URLSearchParams(paramString);
+        for(let pair of queryString.entries()) {
+            console.log("Key is:" + pair[0]);
+            console.log("Value is:" + pair[1]);
+        }
+    }
+    </script>
+</body>
+  
 </html>
