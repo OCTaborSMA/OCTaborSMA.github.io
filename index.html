@@ -11,9 +11,9 @@
 		
 		<script type = "text/javascript"> 
 			function getParams(){
-			var id = getQueryStringValue('id');
-  			var language = getQueryStringValue('language');
- 			document.getElementById("result").innerHTML = "<b>Id : </b>"+id+"<br>"+" <b>language: </b>"+language;
+			var chl = getQueryStringValue('chl');
+			var url = "https://chart.googleapis.com/chart?chs=250x250&amp;cht=qr&amp;choe=UTF-8&amp;chld=M&amp;chl=";	
+  			document.getElementById("qr").src = url + chl;
  			};
   
   			var getQueryStringValue = function(parameter) {
@@ -37,7 +37,7 @@
 <tr style="height: 82px;"><td style="text-align: center; width: 250px; height: 82px;"line-height:0;><img src="https://octaborsma.github.io/content/betaalknop_b.png" alt="" width="250" height="82" style="display: block;"/></td>
 </tr>
 <tr style="height: 250px;">
-<td style="width: 250px; height: 250px;line-height:0;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://chart.googleapis.com/chart?chs=250x250&amp;cht=qr&amp;choe=UTF-8&amp;chld=M&amp;chl=BCD%0A002%0A1%0ASCT%0A%0AOC%20Taborschool%20Maria-Aalter%0ABE75104346164351%0A20%0A%0AOCK23-13%0A%0A" alt="QR" width="250" height="250" /></td>
+<td style="width: 250px; height: 250px;line-height:0;"><img id="qr" style="display: block; margin-left: auto; margin-right: auto;" src="https://chart.googleapis.com/chart?chs=250x250&amp;cht=qr&amp;choe=UTF-8&amp;chld=M&amp;chl=BCD%0A002%0A1%0ASCT%0A%0AOC%20Taborschool%20Maria-Aalter%0ABE75104346164351%0A20%0A%0AOCK23-13%0A%0A" alt="QR" width="250" height="250" /></td>
 </tr>
 <tr style="background-color: #ffffff;">
 <td style="text-align: left; width: 250px; font-size: 11px; padding-left: 40px;"><span style="text-decoration: underline;">Begunstigde</span>: <br />OC Taborschool Maria-Aalter<br /><span style="text-decoration: underline;">Rekeningnummer</span>:&nbsp;<br />BE75 1043 4616 4351<br /><span style="text-decoration: underline;">Bedrag</span>: &euro; 20,00 <br /><span style="text-decoration: underline;">Mededeling</span>: OCKW23-5<br /><br /></td>
@@ -60,5 +60,4 @@
 </tbody>
 </table>
 </body>
-	<p id="result"></p>
 </html>
