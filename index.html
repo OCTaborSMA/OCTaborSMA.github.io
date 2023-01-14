@@ -11,7 +11,7 @@
 		
 		<script type = "text/javascript"> 
 			function getParams(){
-			var chl = getQueryStringValue('chl');
+			var chl = "BCD%0A002%0A1%0ASCT%0A%0AOC%20Taborschool%20Maria-Aalter%0ABE75104346164351%0A" + "20" + "%0A%0A" + "OCK23-13" + "%0A%0A;";
 			var url = "https://chart.googleapis.com/chart?chs=250x250&amp;cht=qr&amp;choe=UTF-8&amp;chld=M&amp;chl=";	
   			document.getElementById("qr").src = url + chl;
  			};
