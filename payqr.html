@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Scan & Betaal Mobiel</title>
+		<meta name="robots" content="noindex, nofollow">
+		<script type = "text/javascript" src="content/pay.js"></script>
+		<link rel="stylesheet" href="content/main.css">	
+	</head>
+<body onload="getParams()">
+<div class="center">
+<div class="header"><img src="content/betaalknop_b.png" alt="Header" height="82" width="250"/></div>
+<div class="qrcode"><img id="qr" src="content/initialqr.png" alt="QR" height="250" width="250"/></div>
+<div class="details">
+	<div class="ul">Begunstigde:</div>
+	<div>OC Taborschool Maria-Aalter</div>
+	<div class="ul">Rekeningnummer:</div>
+	<div>BE75 1043 4616 4351</div>
+	<div><span class="ul">Bedrag:</span><span id="amount"></span></div>
+	<div><span class="ul">Mededeling:</span><span id="ref"></span></div>
+</div>
+<div class="footer"><img src="content/betaalknop_o.png" alt="Footer" height="38" width="250"/></div>
+<div class="instructions">
+<ol>
+<li>Open uw mobiele bank-app<span class="note">*</span><br /> (werkt niet met PayConiq)</li>
+<li>Scan bovenstaande code</li>
+<li>Controleer &amp; bevestig de overschrijving</li>
+</ol>
+</div>
+<div class="note">* enkel beschikbaar voor de mobiele bank-apps van Argenta, Belfius, BNP, ING, KBC & VDK</div>
+</div>
+</body>
+</html>
