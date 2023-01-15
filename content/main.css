@@ -1,0 +1,21 @@
+/* General Website Style rules */
+body {
+  font-family: "Helvetica", Sans-Serif;
+  background-color: #98AFC7;
+  display: block;
+  margin: 8px;
+}
+table
+{
+    width: 250px;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+    cellspacing: 0px;
+    cellpadding: 0px;  
+}
+td
+{
+  line-height: 0 px;
+}
