@@ -1,21 +1,29 @@
-/* General Website Style rules */
 body {
-  font-family: "Helvetica", Sans-Serif;
-  background-color: #98AFC7;
+background-color: #98AFC7;
+}
+
+img {
   display: block;
-  margin: 8px;
+  //float: left;
 }
-table
-{
-    width: 250px;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-    border: 0px;
-    cellspacing: 0px;
-    cellpadding: 0px;  
+
+.center {
+  margin: auto;
+  width: 250px;
 }
-td
-{
-  line-height: 0 px;
+.details {
+background-color: #ffffff;
+padding-left: 30px;
+font-size: 11px;
+margin-bottom: 0px;
+border-bottom: 20px solid #ffffff;
 }
+.ul {
+text-decoration: underline;
+}
+.note {
+font-size: 11px;
+color: #3366ff;
+}
+
+
