@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <style>
+        .hover-cell {
+            width: 700px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 15px;
+            transition: background-color 0.5s ease;
+        }
 
+        .hover-cell:first-child {
+            background-color: lightgreen;
+        }
+
+        .hover-cell:last-child {
+            background-color: lightpink;
+        }
+
+        .hover-cell:hover {
+            background-color: lightblue;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .hover-cell {
+                width: 600px;
+                height: 200px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="display: table;">
+        <div style="display: table-row;">
+            <div class="hover-cell">Mobilepay</div>
+        </div>
+        <div style="display: table-row;">
+            <div class="hover-cell">Payconiq</div>
+        </div>
+    </div>
+</body>
+</html>
