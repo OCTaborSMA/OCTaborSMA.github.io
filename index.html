@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
     <style>
-        .hover-cell {
-            width: 700px;
-            height: 50hv;
+        body {
+            height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            height: 100%;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .div-table {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .div-cell {
             color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: 20px;
+            font-size: 2em;
             font-weight: bold;
-            border-radius: 15px;
-            transition: background-color 0.5s ease;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
         }
 
-        .hover-cell:first-child {
-            background-color: lightgreen;
-        }
-
-        .hover-cell:last-child {
-            background-color: lightpink;
-        }
-
-        .hover-cell:hover {
+        .div-cell:first-child {
             background-color: lightblue;
+            border-radius: 25px 25px 0 0;
         }
 
-        @media only screen and (max-width: 600px) {
-            .hover-cell {
-                width: 100%;
-                height: 50vh; /* 50% of the viewport height */
-                font-size: 24px; /* Larger font size for better visibility */
-            }
+        .div-cell:first-child:hover, .div-cell:first-child:active {
+            background-color: darkblue;
+        }
+
+        .div-cell:last-child {
+            background-color: lightpink;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .div-cell:last-child:hover, .div-cell:last-child:active {
+            background-color: deeppink;
         }
     </style>
 </head>
 <body>
-    <div style="display: table; width: 100%; height: 100vh;">
-        <div style="display: table-row;">
-            <div class="hover-cell">Mobilepay</div>
-        </div>
-        <div style="display: table-row;">
-            <div class="hover-cell">Payconiq</div>
+    <div class="container">
+        <div class="div-table">
+            <div class="div-cell">MOBILEPAY</div>
+            <div class="div-cell">PAYCONICQ</div>
         </div>
     </div>
 </body>
