@@ -37,27 +37,33 @@
             flex-grow: 1;
         }
 
-        .div-cell:first-child {
+        #cell-1 {
             background-color: lightblue;
             border-radius: 25px 25px 0 0;
         }
 
-        .div-cell:first-child:hover, .div-cell:first-child:active {
+        #cell-1:hover, #cell-1:first-child:active {
             background-color: darkblue;
         }
 
-        .div-cell:last-child {
+        #cell-2 {
             background-color: lightpink;
             border-radius: 0 0 25px 25px;
         }
 
-        .div-cell:last-child:hover, .div-cell:last-child:active {
+        #cell-2:hover, #cell-2:active {
             background-color: deeppink;
         }
 
+        #cell-3 {
+            background-color: darkblue;
+            border-radius: 0 0 25px 25px;
+	    display: none;
+
+        }
+
         #input-field, #submit-button {
-            display: none;
-	    background-color: white;
+            background-color: white;
 	    padding: 10px 20px;
             font-size: 1em;
             margin-top: 10px;
@@ -80,20 +86,36 @@
     <div class="container">
         <div class="div-table">
             <div class="div-cell" id="cell-1">MOBILEPAY</div>
-            <div class="div-cell">
-                <div id="cell-2">PAYCONICQ</div>
+            <div class="div-cell" id="cell-2">PAYCONICQ</div>
+	    <div class="div-cell" id="cell-3">
+                 BEDRAG<br><br>
                 <input type="number" id="input-field">
-                <button id="submit-button">QR</button>
+                <button id="submit-button"> OK </button>
+		<img id="qr" style="display: none"></img>
             </div>
         </div>
     </div>
 
     <script>
         document.getElementById('cell-1').addEventListener('click', function() {
-            document.getElementById('cell-2').style.display = 'none';
-            document.getElementById('input-field').style.display = 'block';
-            document.getElementById('submit-button').style.display = 'block';
+            document.getElementById('cell-1').style.background = 'darkblue';
+	    document.getElementById('cell-2').style.display = 'none';
+            document.getElementById('cell-3').style.display = 'block';
         });
+	document.getElementById('submit-button').addEventListener('click', function() {
+		var amount = document.getElementById('input-field').value;
+		var ref = "MobilePay Voetbalavond";
+if (amount && ref){
+		var chl = "BCD%0A002%0A1%0ASCT%0A%0AOC%20Taborschool%20Maria-Aalter%0ABE75104346164351%0A" + amount + "%0A%0A" + ref + "%0A%0A";
+		//var url = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&choe=UTF-8&chld=M&chl=" + chl;	
+		var url = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&qzone=2&data=" + chl;
+
+            document.getElementById('qr').src = url;
+	   document.getElementById('input-field').setAttribute('readonly', true);
+            document.getElementById('qr').style.display = 'inline';
+}
+        });
+
     </script>
 </body>
 </html>
