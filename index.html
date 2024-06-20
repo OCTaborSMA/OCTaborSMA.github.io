@@ -3,7 +3,7 @@
 <head>
     <style>
         body {
-            height: 98vh;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -12,7 +12,7 @@
         .container {
             height: 100%;
             width: 100%;
-            max-width: 1000px;
+            max-width: 600px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -51,17 +51,49 @@
             border-radius: 0 0 25px 25px;
         }
 
-        .div-cell:last-child:hover, .div-cell:last-child:click {
+        .div-cell:last-child:hover, .div-cell:last-child:active {
             background-color: deeppink;
+        }
+
+        #input-field, #submit-button {
+            display: none;
+	    background-color: white;
+	    padding: 10px 20px;
+            font-size: 1em;
+            margin-top: 10px;
+
+        }
+
+        #submit-button {
+            color: white;
+            background-color: darkblue;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-top: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="div-table">
-            <div class="div-cell">MOBILEPAY</div>
-            <div class="div-cell">PAYCONICQ</div>
+            <div class="div-cell" id="cell-1">MOBILEPAY</div>
+            <div class="div-cell">
+                <div id="cell-2">PAYCONICQ</div>
+                <input type="number" id="input-field">
+                <button id="submit-button">QR</button>
+            </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('cell-1').addEventListener('click', function() {
+            document.getElementById('cell-2').style.display = 'none';
+            document.getElementById('input-field').style.display = 'block';
+            document.getElementById('submit-button').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
