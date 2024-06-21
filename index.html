@@ -51,7 +51,11 @@
             border-radius: 0 0 25px 25px;
 
         }
+        #cell-7 {
+            background-color: deeppink;
+            border-radius: 0 0 25px 25px;
 
+        }
         #cell-2:hover, #cell-2:active {
             background-color: deeppink;
         }
@@ -73,16 +77,24 @@ justify-content: flex-start;
 
         }
 
-        #submit-button, #reset-button {
+        #submit-button, #reset-button, #reset-button2 {
             color: white;
-            background-color: darkblue;
+            
             padding: 10px 20px;
-            border: none;
+	    border-color: white;
             border-radius: 5px;
             font-size: 1em;
             margin-top: 10px;
             cursor: pointer;
         }
+
+#submit-button, #reset-button {
+background-color: darkblue;
+}
+#reset-button2 {
+background-color: deeppink;
+}
+
 
 #cell-6 {
     display: flex;
@@ -102,6 +114,8 @@ width: 100%;
     justify-content: center;
     align-items: center;
     border: 1px solid #FFF; /* Optional: For visualizing the cells */
+cursor: pointer;
+
 }
 span {
   min-height: 100px;
@@ -150,11 +164,11 @@ padding: 2px 2px 2px 2px; //padding positions
 
             <div class="div-cell" id="cell-3" style="display: flex">
                  BEDRAG
-                <span class="currencyinput">&#8364;<input type="number" inputmode="decimal" id="input-field" min="0" max="200" step="0.5"></span>
+                <span class="currencyinput">&#8364;   <input type="number" inputmode="decimal" id="input-field" min="0" max="200" step="0.5"></span>
                 <button id="submit-button"> OK </button>
 		<br>
 		<img id="qr" style="display: none"; margin-top: 10px;></img>
-               <button id="reset-button" style="display: none"> RESET </button>
+               <button id="reset-button" > BACK </button>
             </div>
         </div>
 <div class="div-table" id="table-3" style="display: none">
@@ -179,6 +193,10 @@ padding: 2px 2px 2px 2px; //padding positions
             <div class="cell"></div>
         </div>
     </div>
+	<div class="div-cell" id="cell-7" style="display: none; flex-wrap: wrap; flex-direction: column;"><span id="bedrag">BEDRAG: &#8364; </span>
+<button id="reset-button2"> BACK </button>
+
+</div>
 </div>    
 </div>
 <div class="container" id="container1" style="display: none">
@@ -204,7 +222,7 @@ if (amount && ref){
 	   document.getElementById('input-field').setAttribute('readonly', true);
             document.getElementById('qr').style.display = 'flex';
 	document.getElementById('submit-button').style.display = 'none';
-document.getElementById('reset-button').style.display = 'flex';
+//document.getElementById('reset-button').style.display = 'flex';
 };
 
 
@@ -214,6 +232,8 @@ function CreatePQR(am){
 	var scr = 'content/pcqr' + am + '.svg';
 	document.getElementById('img-pcqr').src = scr;
 	document.getElementById('container1').style.display = 'flex';
+	document.getElementById('cell-6').style.display = 'none';
+	document.getElementById('cell-7').style.display = 'flex';
 
 };
 
@@ -239,7 +259,9 @@ CreateQR();
 document.getElementById('reset-button').addEventListener('click', function() {
 location.reload();
 });
-
+document.getElementById('reset-button2').addEventListener('click', function() {
+location.reload();
+});
 document.getElementById('pcq5').addEventListener('click', function() {
 CreatePQR(5);
 });
