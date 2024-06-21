@@ -161,29 +161,29 @@ padding: 2px 2px 2px 2px; //padding positions
     <div class="div-cell" id="cell-5"><img src="content/payconiq-vertical-neg.png" height="200" /></div>
     <div class="div-cell" id="cell-6" style="display: flex; flex-wrap: wrap;">
      <div class="row">
-            <div class="cell">&#8364; 5</div>
-            <div class="cell">&#8364; 10</div>
-            <div class="cell">&#8364; 15</div>
-            <div class="cell">&#8364; 20</div>
+            <div class="cell" id="pcq5">&#8364; 5</div>
+            <div class="cell" id="pcq10">&#8364; 10</div>
+            <div class="cell" id="pcq15">&#8364; 15</div>
+            <div class="cell" id="pcq20">&#8364; 20</div>
         </div>
         <div class="row">
-            <div class="cell">&#8364; 25</div>
-            <div class="cell">&#8364; 30</div>
-            <div class="cell">&#8364; 35</div>
-            <div class="cell">&#8364; 40</div>
+            <div class="cell" id="pcq25">&#8364; 25</div>
+            <div class="cell" id="pcq30">&#8364; 30</div>
+            <div class="cell" id="pcq35">&#8364; 35</div>
+            <div class="cell" id="pcq40">&#8364; 40</div>
         </div>
         <div class="row">
             <div class="cell"></div>
-            <div class="cell">&#8364; 45</div>
-            <div class="cell">&#8364; 50</div>
+            <div class="cell" id="pcq45">&#8364; 45</div>
+            <div class="cell" id="pcq50">&#8364; 50</div>
             <div class="cell"></div>
         </div>
     </div>
 </div>    
 </div>
-<div class="container" id="container1">
+<div class="container" id="container1" style="display: none">
   <div id="pcqr">
-    <img src="content/initialqr.png"/>
+    <img id="img-pcqr" src="content/initialqr.png"/>
   </div>
 </div>
 
@@ -192,6 +192,31 @@ padding: 2px 2px 2px 2px; //padding positions
 
 
     <script>
+
+function CreateQR(){
+		var amount = document.getElementById('input-field').value;
+		var ref = "MobilePay Voetbalavond";
+if (amount && ref){
+		var chl = "BCD%0A002%0A1%0ASCT%0A%0AOC%20Taborschool%20Maria-Aalter%0ABE75104346164351%0A" + amount + "%0A%0A" + ref + "%0A%0A";	
+		var url = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&qzone=2&data=" + chl;
+
+            document.getElementById('qr').src = url;
+	   document.getElementById('input-field').setAttribute('readonly', true);
+            document.getElementById('qr').style.display = 'flex';
+	document.getElementById('submit-button').style.display = 'none';
+document.getElementById('reset-button').style.display = 'flex';
+};
+
+
+};
+
+function CreatePQR(am){
+	var scr = 'content/pcqr' + am + '.svg';
+	document.getElementById('img-pcqr').src = scr;
+	document.getElementById('container1').style.display = 'flex';
+
+};
+
         document.getElementById('cell-1').addEventListener('click', function() {
             document.getElementById('cell-4').style.background = 'darkblue';
 	    document.getElementById('table-1').style.display = 'none';
@@ -215,21 +240,38 @@ document.getElementById('reset-button').addEventListener('click', function() {
 location.reload();
 });
 
-function CreateQR(){
-		var amount = document.getElementById('input-field').value;
-		var ref = "MobilePay Voetbalavond";
-if (amount && ref){
-		var chl = "BCD%0A002%0A1%0ASCT%0A%0AOC%20Taborschool%20Maria-Aalter%0ABE75104346164351%0A" + amount + "%0A%0A" + ref + "%0A%0A";	
-		var url = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&qzone=2&data=" + chl;
+document.getElementById('pcq5').addEventListener('click', function() {
+CreatePQR(5);
+});
+document.getElementById('pcq10').addEventListener('click', function() {
+CreatePQR(10);
+});
+document.getElementById('pcq15').addEventListener('click', function() {
+CreatePQR(15);
+});
+document.getElementById('pcq20').addEventListener('click', function() {
+CreatePQR(20);
+});
+document.getElementById('pcq25').addEventListener('click', function() {
+CreatePQR(25);
+});
+document.getElementById('pcq30').addEventListener('click', function() {
+CreatePQR(30);
+});
+document.getElementById('pcq35').addEventListener('click', function() {
+CreatePQR(35);
+});
+document.getElementById('pcq40').addEventListener('click', function() {
+CreatePQR(40);
+});
+document.getElementById('pcq45').addEventListener('click', function() {
+CreatePQR(45);
+});
+document.getElementById('pcq50').addEventListener('click', function() {
+CreatePQR(50);
+});
 
-            document.getElementById('qr').src = url;
-	   document.getElementById('input-field').setAttribute('readonly', true);
-            document.getElementById('qr').style.display = 'flex';
-	document.getElementById('submit-button').style.display = 'none';
-document.getElementById('reset-button').style.display = 'flex';
-}
 
-};
     
 </script>
 </body>
