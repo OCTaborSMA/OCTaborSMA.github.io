@@ -3,7 +3,7 @@
 <head>
     <style>
         body {
-            height: 100vh;
+            height: 98vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -37,7 +37,7 @@
             flex-grow: 1;
         }
 
-        #cell-1 {
+        #cell-1, #cell-4 {
             background-color: lightblue;
             border-radius: 25px 25px 0 0;
         }
@@ -49,6 +49,7 @@
         #cell-2 {
             background-color: lightpink;
             border-radius: 0 0 25px 25px;
+
         }
 
         #cell-2:hover, #cell-2:active {
@@ -58,7 +59,7 @@
         #cell-3 {
             background-color: darkblue;
             border-radius: 0 0 25px 25px;
-	    display: none;
+flex-direction: column;
 
         }
 
@@ -70,7 +71,7 @@
 
         }
 
-        #submit-button {
+        #submit-button, #reset-button {
             color: white;
             background-color: darkblue;
             padding: 10px 20px;
@@ -84,35 +85,41 @@
 </head>
 <body>
     <div class="container">
-        <div class="div-table">
+        <div class="div-table" id="table-1">
             <div class="div-cell" id="cell-1">MOBILEPAY</div>
             <div class="div-cell" id="cell-2">PAYCONICQ</div>
-	    <div class="div-cell" id="cell-3">
-                 BEDRAG<br><br>
+        </div>
+        <div class="div-table" id="table-2" style="display: none">
+            <div class="div-cell" id="cell-4">MOBILEPAY</div>
+            <div class="div-cell" id="cell-3" style="display: flex">
+                 BEDRAG
                 <input type="number" id="input-field">
                 <button id="submit-button"> OK </button>
-		<img id="qr" style="display: none"></img>
+		
+		<img id="qr" style="display: none"; margin-top: 10px;></img>
+               <button id="reset-button" style="display: none"> RESET </button>
             </div>
         </div>
     </div>
 
     <script>
         document.getElementById('cell-1').addEventListener('click', function() {
-            document.getElementById('cell-1').style.background = 'darkblue';
-	    document.getElementById('cell-2').style.display = 'none';
-            document.getElementById('cell-3').style.display = 'block';
+            document.getElementById('cell-4').style.background = 'darkblue';
+	    document.getElementById('table-1').style.display = 'none';
+            document.getElementById('table-2').style.display = 'flex';
         });
 	document.getElementById('submit-button').addEventListener('click', function() {
 		var amount = document.getElementById('input-field').value;
 		var ref = "MobilePay Voetbalavond";
 if (amount && ref){
-		var chl = "BCD%0A002%0A1%0ASCT%0A%0AOC%20Taborschool%20Maria-Aalter%0ABE75104346164351%0A" + amount + "%0A%0A" + ref + "%0A%0A";
-		//var url = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&choe=UTF-8&chld=M&chl=" + chl;	
+		var chl = "BCD%0A002%0A1%0ASCT%0A%0AOC%20Taborschool%20Maria-Aalter%0ABE75104346164351%0A" + amount + "%0A%0A" + ref + "%0A%0A";	
 		var url = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&qzone=2&data=" + chl;
 
             document.getElementById('qr').src = url;
 	   document.getElementById('input-field').setAttribute('readonly', true);
-            document.getElementById('qr').style.display = 'inline';
+            document.getElementById('qr').style.display = 'flex';
+	document.getElementById('submit-button').style.display = 'none';
+document.getElementById('reset-button').style.display = 'flex';
 }
         });
 
