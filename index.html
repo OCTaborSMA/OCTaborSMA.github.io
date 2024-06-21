@@ -103,25 +103,36 @@ width: 100%;
     align-items: center;
     border: 1px solid #FFF; /* Optional: For visualizing the cells */
 }
+span {
+  min-height: 100px;
+  display: inline-flex;
+  align-items: center;
+  }
+img
+{
+padding: 2px 2px 2px 2px; //padding positions
+}
     </style>
 </head>
 <body>
     <div class="container">
         <div class="div-table" id="table-1">
-            <div class="div-cell" id="cell-1"><div>MOBILEPAY</div>
-<img src="argenta.png" width="20%" height="20%"/><img src="belfius.png" width="20%" height="20%"/>
-<img src="bnp.png" width="20%" height="20%"/>
-<img src="ing.svg" width="20%" height="20%"/></div>
-            <div class="div-cell" id="cell-2">PAYCONICQ</div>
+            <div class="div-cell" id="cell-1" style="flex-direction: column;"><div>MOBILEPAY</div><span style="vertical-align:middle">
+<img src="content/argenta.png" width="90" /><img src="content/belfius.png" width="120" />
+<img src="content/bnp.png" width="130" />
+<img src="content/ing.png" width="100"/><img src="content/kbc.png" width="50" /><img src="content/vdk.png" width="70" /><span></div>
+            <div class="div-cell" id="cell-2"><img src="content/payconiq-vertical-neg.png" height="200" /></div>
         </div>
         <div class="div-table" id="table-2" style="display: none">
-            <div class="div-cell" id="cell-4"><div>MOBILEPAY</div>
-<img src="argenta.png" />
-</div>
+            <div class="div-cell" id="cell-4" style="flex-direction: column;"><div>MOBILEPAY</div>
+<span style="vertical-align:middle">
+<img src="content/argenta.png" width="90" /><img src="content/belfius.png" width="120" />
+<img src="content/bnp.png" width="130" />
+<img src="content/ing.png" width="100"/><img src="content/kbc.png" width="50" /><img src="content/vdk.png" width="70" /><span></div>
 
             <div class="div-cell" id="cell-3" style="display: flex">
                  BEDRAG
-                <span class="currencyinput">&#8364; <input type="number" inputmode="decimal" id="input-field" min="0" max="200" step="0.5"></span>
+                <span class="currencyinput">&#8364;<input type="number" inputmode="decimal" id="input-field" min="0" max="200" step="0.5"></span>
                 <button id="submit-button"> OK </button>
 		<br>
 		<img id="qr" style="display: none"; margin-top: 10px;></img>
@@ -129,7 +140,7 @@ width: 100%;
             </div>
         </div>
 <div class="div-table" id="table-3" style="display: none">
-    <div class="div-cell" id="cell-5">PAYCONIQ</div>
+    <div class="div-cell" id="cell-5"><img src="content/payconiq-vertical-neg.png" height="200" /></div>
     <div class="div-cell" id="cell-6" style="display: flex; flex-wrap: wrap;">
      <div class="row">
             <div class="cell">&#8364; 5</div>
