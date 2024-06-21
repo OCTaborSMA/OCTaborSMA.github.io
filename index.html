@@ -108,14 +108,20 @@ width: 100%;
 <body>
     <div class="container">
         <div class="div-table" id="table-1">
-            <div class="div-cell" id="cell-1">MOBILEPAY</div>
+            <div class="div-cell" id="cell-1"><div>MOBILEPAY</div>
+<img src="argenta.png" width="20%" height="20%"/><img src="belfius.png" width="20%" height="20%"/>
+<img src="bnp.png" width="20%" height="20%"/>
+<img src="ing.svg" width="20%" height="20%"/></div>
             <div class="div-cell" id="cell-2">PAYCONICQ</div>
         </div>
         <div class="div-table" id="table-2" style="display: none">
-            <div class="div-cell" id="cell-4">MOBILEPAY</div>
+            <div class="div-cell" id="cell-4"><div>MOBILEPAY</div>
+<img src="argenta.png" />
+</div>
+
             <div class="div-cell" id="cell-3" style="display: flex">
                  BEDRAG
-                <input type="number" id="input-field">
+                <span class="currencyinput">&#8364;<input type="number" inputmode="numeric" id="input-field" min="0" max="200" step="0.5"></span>
                 <button id="submit-button"> OK </button>
 		<br>
 		<img id="qr" style="display: none"; margin-top: 10px;></img>
@@ -159,8 +165,20 @@ width: 100%;
 	    document.getElementById('table-1').style.display = 'none';
             document.getElementById('table-3').style.display = 'flex';
         });
-
+document.getElementById('input-field').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+CreateQR();      
+    }
+});
 	document.getElementById('submit-button').addEventListener('click', function() {
+CreateQR();
+        });
+
+document.getElementById('reset-button').addEventListener('click', function() {
+location.reload();
+});
+
+function CreateQR(){
 		var amount = document.getElementById('input-field').value;
 		var ref = "MobilePay Voetbalavond";
 if (amount && ref){
@@ -173,11 +191,9 @@ if (amount && ref){
 	document.getElementById('submit-button').style.display = 'none';
 document.getElementById('reset-button').style.display = 'flex';
 }
-        });
 
-document.getElementById('reset-button').addEventListener('click', function() {
-location.reload();
-});
-    </script>
+};
+    
+</script>
 </body>
 </html>
