@@ -37,7 +37,7 @@
             flex-grow: 1;
         }
 
-        #cell-1, #cell-4 {
+        #cell-1, #cell-4, #cell-5 {
             background-color: lightblue;
             border-radius: 25px 25px 0 0;
         }
@@ -46,7 +46,7 @@
             background-color: darkblue;
         }
 
-        #cell-2 {
+        #cell-2, #cell-3, #cell-6 {
             background-color: lightpink;
             border-radius: 0 0 25px 25px;
 
@@ -60,6 +60,7 @@
             background-color: darkblue;
             border-radius: 0 0 25px 25px;
 flex-direction: column;
+justify-content: flex-start;
 
         }
 
@@ -68,6 +69,7 @@ flex-direction: column;
 	    padding: 10px 20px;
             font-size: 1em;
             margin-top: 10px;
+	text-align: center;
 
         }
 
@@ -81,6 +83,26 @@ flex-direction: column;
             margin-top: 10px;
             cursor: pointer;
         }
+
+#cell-6 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+width: 100%;
+}
+
+.cell {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #FFF; /* Optional: For visualizing the cells */
+}
     </style>
 </head>
 <body>
@@ -95,11 +117,35 @@ flex-direction: column;
                  BEDRAG
                 <input type="number" id="input-field">
                 <button id="submit-button"> OK </button>
-		
+		<br>
 		<img id="qr" style="display: none"; margin-top: 10px;></img>
                <button id="reset-button" style="display: none"> RESET </button>
             </div>
         </div>
+<div class="div-table" id="table-3" style="display: none">
+    <div class="div-cell" id="cell-5">PAYCONIQ</div>
+    <div class="div-cell" id="cell-6" style="display: flex; flex-wrap: wrap;">
+     <div class="row">
+            <div class="cell">&#8364; 5</div>
+            <div class="cell">&#8364; 10</div>
+            <div class="cell">&#8364; 15</div>
+            <div class="cell">&#8364; 20</div>
+        </div>
+        <div class="row">
+            <div class="cell">&#8364; 25</div>
+            <div class="cell">&#8364; 30</div>
+            <div class="cell">&#8364; 35</div>
+            <div class="cell">&#8364; 40</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell">&#8364; 45</div>
+            <div class="cell">&#8364; 50</div>
+            <div class="cell"></div>
+        </div>
+    </div>
+</div>
+
     </div>
 
     <script>
@@ -108,6 +154,12 @@ flex-direction: column;
 	    document.getElementById('table-1').style.display = 'none';
             document.getElementById('table-2').style.display = 'flex';
         });
+  document.getElementById('cell-2').addEventListener('click', function() {
+            document.getElementById('cell-5').style.background = 'deeppink';
+	    document.getElementById('table-1').style.display = 'none';
+            document.getElementById('table-3').style.display = 'flex';
+        });
+
 	document.getElementById('submit-button').addEventListener('click', function() {
 		var amount = document.getElementById('input-field').value;
 		var ref = "MobilePay Voetbalavond";
@@ -123,6 +175,9 @@ document.getElementById('reset-button').style.display = 'flex';
 }
         });
 
+document.getElementById('reset-button').addEventListener('click', function() {
+location.reload();
+});
     </script>
 </body>
 </html>
