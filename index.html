@@ -112,9 +112,27 @@ img
 {
 padding: 2px 2px 2px 2px; //padding positions
 }
+
+#container1 {
+  width: 254px;
+  height: 254px;
+ position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+}
+#pcqr {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="div-table" id="table-1">
             <div class="div-cell" id="cell-1" style="flex-direction: column;"><div>MOBILEPAY</div><span style="vertical-align:middle">
@@ -161,9 +179,17 @@ padding: 2px 2px 2px 2px; //padding positions
             <div class="cell"></div>
         </div>
     </div>
+</div>    
+</div>
+<div class="container" id="container1">
+  <div id="pcqr">
+    <img src="content/initialqr.png"/>
+  </div>
 </div>
 
-    </div>
+
+
+
 
     <script>
         document.getElementById('cell-1').addEventListener('click', function() {
