@@ -51,6 +51,10 @@ document.getElementById('reset-button').addEventListener('click', function() {
     location.reload();
 });
 
+document.getElementById('reset-button1').addEventListener('click', function() {
+    location.reload();
+});
+
 document.getElementById('reset-button2').addEventListener('click', function() {
     location.reload();
 });
