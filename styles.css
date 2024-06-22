@@ -62,7 +62,7 @@ body {
     text-align: center;
     width: 150px;
 }
-#submit-button, #reset-button, #reset-button2 {
+#submit-button, #reset-button, #reset-button1, #reset-button2 {
     color: white;
     padding: 10px 20px;
     border-color: white;
@@ -75,7 +75,7 @@ body {
 #submit-button, #reset-button {
     background-color: darkblue;
 }
-#reset-button2 {
+#reset-button1, #reset-button2 {
     background-color: deeppink;
 }
 #cell-6 {
